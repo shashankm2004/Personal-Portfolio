@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Modern Green Theme */
+
+@layer base {
+  :root {
+    /* Light mode - Mint green theme */
+    --background: 151 81% 96%;
+    --foreground: 222 47% 11%;
+    
+    --card: 151 50% 98%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 151 50% 98%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 160 64% 52%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 151 30% 90%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 151 30% 92%;
+    --muted-foreground: 222 20% 45%;
+    
+    --accent: 172 85% 41%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 151 30% 88%;
+    --input: 151 30% 88%;
+    --ring: 160 64% 52%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom portfolio colors - Green theme */
+    --hero-gradient: linear-gradient(135deg, hsl(160 64% 52%) 0%, hsl(84 81% 44%) 50%, hsl(172 85% 41%) 100%);
+    --glass-bg: 151 50% 98% / 0.8;
+    --glass-border: 151 30% 88% / 0.3;
+    --glow-primary: 160 64% 52% / 0.3;
+    --glow-accent: 172 85% 41% / 0.3;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Dark greenish theme */
+    --background: 222 47% 11%;
+    --foreground: 151 30% 95%;
+    
+    --card: 222 40% 15%;
+    --card-foreground: 151 30% 95%;
+    
+    --popover: 222 40% 15%;
+    --popover-foreground: 151 30% 95%;
+    
+    --primary: 160 64% 52%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 222 30% 20%;
+    --secondary-foreground: 151 30% 95%;
+    
+    --muted: 222 30% 18%;
+    --muted-foreground: 151 20% 70%;
+    
+    --accent: 172 85% 41%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 160 64% 52%;
+    
+    /* Dark mode custom colors - Green theme */
+    --hero-gradient: linear-gradient(135deg, hsl(160 64% 52%) 0%, hsl(84 81% 44%) 50%, hsl(172 85% 41%) 100%);
+    --glass-bg: 222 40% 15% / 0.8;
+    --glass-border: 151 20% 30% / 0.3;
+    --glow-primary: 160 64% 52% / 0.4;
+    --glow-accent: 172 85% 41% / 0.4;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass morphism utility */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Gradient text utility */
+  .gradient-text {
+    background: var(--hero-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 40px hsl(var(--glow-primary));
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 30px hsl(var(--glow-accent));
+  }
+  
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--hero-gradient);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+}
